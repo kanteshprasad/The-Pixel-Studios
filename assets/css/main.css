@@ -217,7 +217,9 @@ h6 {
   filter: blur(5px) brightness(40%);
 }
 
-
+#heropic{
+  filter: blur(7px) brightness(40%);
+}
 
 #contact-home{
   display: flex;
