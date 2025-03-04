@@ -217,9 +217,9 @@ h6 {
   filter: blur(5px) brightness(40%);
 }
 
-#heropic{
+/* #heropic{
   filter: blur(5px) brightness(40%);
-}
+} */
 
 #contact-home{
   display: flex;
@@ -742,6 +742,7 @@ section,
   height: 100%;
   object-fit: cover;
   z-index: 1;
+  filter: blur(5px) brightness(40%);
 }
 
 .hero .container {
