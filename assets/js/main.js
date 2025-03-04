@@ -12,53 +12,43 @@
       // form
       document.addEventListener("DOMContentLoaded", function () {
         const contactForm = document.getElementById("contactForm");
-      
+    
         if (contactForm) {
-          // Explicitly set action attribute to prevent "form action property is not set!" error
-          contactForm.setAttribute("action", "mailto:contact@thepixelstudios.in");
-      
-          contactForm.addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
-      
-            // Get form values
-            let name = document.getElementById("name-field").value.trim();
-            let email = document.getElementById("email-field").value.trim();
-            let subject = document.getElementById("subject-field").value.trim();
-            let message = document.getElementById("message-field").value.trim();
-      
-            // Select message elements
-            let loading = document.querySelector(".loading");
-            let errorMessage = document.querySelector(".error-message");
-            let sentMessage = document.querySelector(".sent-message");
-      
-            // Clear previous messages
-            errorMessage.style.display = "none";
-            sentMessage.style.display = "none";
-      
-            // Form validation
-            if (!name || !email || !subject || !message) {
-              errorMessage.innerHTML = "Please fill out all fields before sending.";
-              errorMessage.style.display = "block";
-              return;
-            }
-      
-            // Encode data for mailto
-            let mailtoLink = `mailto:contact@thepixelstudios.in?subject=${encodeURIComponent(subject)}&body=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0AMessage:%20${encodeURIComponent(message)}`;
-      
-            // Show loading animation
-            loading.style.display = "block";
-      
-            // Simulate loading, then show success message
-            setTimeout(() => {
-              loading.style.display = "none";
-              sentMessage.style.display = "block"; // Show success message
-      
-              // Open email client with pre-filled content
-              window.location.href = mailtoLink;
-            }, 1000);
-          });
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent normal form submission
+    
+                // Get form values
+                let name = document.getElementById("name-field").value.trim();
+                let email = document.getElementById("email-field").value.trim();
+                let subject = document.getElementById("subject-field").value.trim();
+                let message = document.getElementById("message-field").value.trim();
+    
+                // Select message elements
+                let errorMessage = document.querySelector(".error-message");
+                let sentMessage = document.querySelector(".sent-message");
+    
+                // Clear previous messages
+                errorMessage.style.display = "none";
+                sentMessage.style.display = "none";
+    
+                // Form validation
+                if (!name || !email || !subject || !message) {
+                    errorMessage.innerHTML = "Please fill out all fields before sending.";
+                    errorMessage.style.display = "block";
+                    return;
+                }
+    
+                // Encode data for mailto
+                let mailtoLink = `mailto:contact@thepixelstudios.in?subject=${encodeURIComponent(subject)}&body=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0AMessage:%20${encodeURIComponent(message)}`;
+    
+                // Show success message and open mail client
+                sentMessage.style.display = "block"; 
+                window.location.href = mailtoLink;
+            });
         }
-      });
+    });
+    
+    
       
 
 
