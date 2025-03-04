@@ -50,7 +50,14 @@
     
     
       
-
+    window.onscroll = function () {
+      let scrollBar = document.getElementById("scrollBar");
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      let scrollPercent = (scrollTop / scrollHeight) * 100;
+      scrollBar.style.width = scrollPercent + "%";
+  };
+  
 
 
   /**
