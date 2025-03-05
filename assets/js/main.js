@@ -6,10 +6,16 @@
 * License: https://bootstrapmade.com/license/
 */
 
+
+
 (function() {
   "use strict";
 
       // form
+
+     
+    
+
       document.addEventListener("DOMContentLoaded", function () {
         const contactForm = document.getElementById("contactForm");
     
@@ -49,6 +55,8 @@
     });
     
     
+
+
       
     window.onscroll = function () {
       let scrollBar = document.getElementById("scrollBar");
@@ -56,6 +64,7 @@
       let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       let scrollPercent = (scrollTop / scrollHeight) * 100;
       scrollBar.style.width = scrollPercent + "%";
+      console.log("Scrolling detected:", document.documentElement.scrollTop);
   };
   
 
